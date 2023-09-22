@@ -135,3 +135,27 @@ gp env HELLO='world'
 ```
 
 All future workspaces launched will set the env vars for all bash terminals 
+
+### AWS CLI Installation
+
+AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting Started Install (AWS CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+[AWS CLI Env Vars](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+We can check if our AWS credentials are configured correctly by running the following:
+```sh
+aws sts get-caller-identity
+```
+
+If successful you should see a json payload return that looks like this:
+
+```json
+{
+    "UserId": "AIEAVUO1......",
+    "Account": "1234567890..",
+    "Arn": "arn:aws:iam::1234567890:user/user-name"
+}
+```
+
+We'll need to generate AWS CLI credits from IAM User in order to use the AWS CLI 
