@@ -8,13 +8,13 @@
       + [Shebang](#shebang)
    * [Execution Considerations](#execution-considerations)
    * [Linux Permission Considerations](#linux-permission-considerations)
-   * [Gitpod lifecycle (Before, Init, Command)](#gitpod-lifecycle-before-init-command)
-   * [Working with Env Vars](#working-with-env-vars)
+- [Gitpod lifecycle (Before, Init, Command)](#gitpod-lifecycle-before-init-command)
+- [Working with Env Vars](#working-with-env-vars)
       + [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
       + [Printing Vars](#printing-vars)
       + [Scoping of Env Vars](#scoping-of-env-vars)
          - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
-   * [AWS CLI Installation](#aws-cli-installation)
+- [AWS CLI Installation](#aws-cli-installation)
 - [Terraform Basics](#terraform-basics)
    * [Terraform Registry](#terraform-registry)
    * [Terraform Console](#terraform-console)
@@ -113,10 +113,10 @@ chmod 744 ./bin/install_terraform_cli
 ```
 https://en.wikipedia.org/wiki/Chmod
 
-### Gitpod lifecycle (Before, Init, Command)
+## Gitpod lifecycle (Before, Init, Command)
 We need to be careful when using the Init because it will not rerun if we restart an exisiting workspace.
 
-### Working with Env Vars
+## Working with Env Vars
 
 We can list out all Environment Variables (Env Vars) using the `env` command
 
@@ -163,7 +163,7 @@ gp env HELLO='world'
 
 All future workspaces launched will set the env vars for all bash terminals 
 
-### AWS CLI Installation
+## AWS CLI Installation
 
 AWS CLI is installed for the project via the bash script [`./bin/install_aws_cli`](./bin/install_aws_cli)
 
