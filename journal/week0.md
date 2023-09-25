@@ -6,14 +6,14 @@
    * [Consideration for Linux Distribution](#consideration-for-linux-distribution)
    * [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
       + [Shebang](#shebang)
-   * [Execution Considerations](#execution-considerations)
-   * [Linux Permission Considerations](#linux-permission-considerations)
+      + [Execution Considerations](#execution-considerations)
+      + [Linux Permission Considerations](#linux-permission-considerations)
 - [Gitpod lifecycle (Before, Init, Command)](#gitpod-lifecycle-before-init-command)
 - [Working with Env Vars](#working-with-env-vars)
-      + [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
-      + [Printing Vars](#printing-vars)
-      + [Scoping of Env Vars](#scoping-of-env-vars)
-         - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+   * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
+   * [Printing Vars](#printing-vars)
+   * [Scoping of Env Vars](#scoping-of-env-vars)
+   * [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
 - [AWS CLI Installation](#aws-cli-installation)
 - [Terraform Basics](#terraform-basics)
    * [Terraform Registry](#terraform-registry)
@@ -92,14 +92,14 @@ ChatGPT recommended this format for bash: `#!/usr/bin/env bash`
 
 https://en.wikipedia.org/wiki/Shebang_(Unix)
 
-### Execution Considerations
+#### Execution Considerations
 
 When executing the bash script we can use the `./` shorthand notation to execute the script.
 e.g. `./bin/install_terraform_cli`
 If we are using a script in gitpot.yml we need to point the script to a program to interpret it.
 e.g. `source ./bin/install_terraform_cli`
 
-### Linux Permission Considerations
+#### Linux Permission Considerations
 
 In order to make our bash scripts executable we need to change linux permission for the fix to be executable at the user mode.
 
@@ -122,7 +122,7 @@ We can list out all Environment Variables (Env Vars) using the `env` command
 
 We can filter specific env vars using grep e.g. `env | grep AWS_`
 
-#### Setting and Unsetting Env Vars
+### Setting and Unsetting Env Vars
 
 In the terminal we can set using `export HELLO='world'`
 
@@ -143,17 +143,17 @@ HELLO='world'
 echo $HELLO
 ```
 
-#### Printing Vars
+### Printing Vars
 
 We can print an env var using echo e.g. `echo $HELLO`
 
-#### Scoping of Env Vars
+### Scoping of Env Vars
 
 When you open up new bash terminals in VSCode it will not be aware of env vars that you have set in another window.
 
 If you want to Env Vars to persist across all future bash terminals that are open you need to set env vars in your bash profile. e.g. `.bash_profile`
 
-##### Persisting Env Vars in Gitpod
+### Persisting Env Vars in Gitpod
 
 We can persist env vars into gitpod by storing them in Gitpod Secret Storage
 
