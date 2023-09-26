@@ -44,3 +44,16 @@ We can use the `-var` flag to set an input variable or override a variable in th
 ### order of terraform variables
 
 - TODO: document which terraform variables takes precedence
+
+
+## Dealing with Configuration Drift
+
+### Fix Missing Resources with Terraform Import
+
+[Terraform Import](https://developer.hashicorp.com/terraform/language/import)
+
+### Fix Manual Config
+
+If someone goes and modifies cloud resource manually through clickops.
+
+If we run Terrafrom plan is with attempt to put our infrastructure back into the expected state fixing Configuration Drift
