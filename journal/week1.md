@@ -92,3 +92,18 @@ Using the source we can import the module from various places e.g.:
 - Terrafrom registry
 
 [Module Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+
+## Consideration when using ChatGPT to write Terraform
+
+LLMs such as ChatGPT may not be rained on the latest documentation or information about Terraform.
+
+
+## Working with Files in Terraform
+
+### Path Variables
+
+In terraform there is a special variable called `path` that allows us to reference local paths:
+- path.module = get the path for the current module
+- path.root = get the path for the root module
+[Reference Path Variables](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object)
