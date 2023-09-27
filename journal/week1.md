@@ -169,3 +169,12 @@ jsonencode({"hello"="world"})
 ```
 
 [jsonencode()](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+### Chaning the Lifecycle of Resources
+
+[Meta Argument Lifecycle](https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle)
+
+### Terraform Data
+
+The `terraform_data` implements the standard resource lifecycle, but does not directly take any other actions. You can use the `terraform_data` resource without requiring or configuring a provider. It is always available through a built-in provider with the source address terraform.io/builtin/terraform.
+[Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
