@@ -178,3 +178,46 @@ jsonencode({"hello"="world"})
 
 The `terraform_data` implements the standard resource lifecycle, but does not directly take any other actions. You can use the `terraform_data` resource without requiring or configuring a provider. It is always available through a built-in provider with the source address terraform.io/builtin/terraform.
 [Terraform Data](https://developer.hashicorp.com/terraform/language/resources/terraform-data)
+
+## Provisioners
+
+Provisioners allow you to execute commands on comute instances e.g. AWS CLI command.
+They are not best practice because configurations tools such as Ansible are a better fit.
+But this practice does exist and should be known.
+
+[Provisioners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
+
+### Local-exec
+
+This will execute a command on the machine running the Terraform commands
+```tf
+provisioner "aws_instance" "web" {
+  command = "echo The server's IP address is ${self.private_ip}
+}
+```
+
+### Remote-exec
+
+This will execute a commands on a machine which you target. You will need to provide credentials such as ssh to get into the machine.
+
+```tf
+resource "aws_instance" "web" {
+  # ...
+
+  # Establishes connection to be used by all
+  # generic remote provisioners (i.e. file/remote-exec)
+  connection {
+    type     = "ssh"
+    user     = "root"
+    password = var.root_password
+    host     = self.public_ip
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "puppet apply",
+      "consul join ${aws_instance.web.private_ip}",
+    ]
+  }
+}
+```
