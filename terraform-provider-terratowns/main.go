@@ -22,7 +22,6 @@ func main() {
 // In golang, a titlecase function will get exported
 func Provider() *schema.Provider {
 	var p *schema.Provider
-
 	p = &schema.Provider{
 		ResourcesMap: map[string]*schema.Resource{},
 		DataSourcesMap: map[string]*schema.Resource{},
@@ -30,18 +29,18 @@ func Provider() *schema.Provider {
 			"endpoint": {
 				Type: schema.TypeString,
 				Required: true,
-				// Descritption: "The endpoint for the external service",
+				Description: "The endpoint for the external service",
 			},
 			"token": {
 				Type: schema.TypeString,
 				Sensitive: true, // mark the token as sensitive to hide it from logs
 				Required: true,
-				// Descritption: "Bearer token for authorization",
+				Description: "Bearer token for authorization",
 			},
 			"user_uuid": {
 				Type: schema.TypeString,
 				Required: true,
-				// Descritption: "UUID for configuration",
+				// Description: "UUID for configuration",
 				// ValidateFunc: validateUUID,
 			},
 		},
