@@ -1,4 +1,4 @@
-variable "user_uuid"{
+variable "teacherseat_user_uuid"{
     type = string
 }
 
@@ -19,5 +19,13 @@ variable "content_version" {
 }
 
 variable "assets_path" {
+  type = string
+}
+
+variable "terratowns_endpoint" {
+  type = string
+}
+
+variable "terratowns_access_token" {
   type = string
 }
