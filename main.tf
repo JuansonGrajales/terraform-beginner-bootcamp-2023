@@ -20,40 +20,34 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "dominoes_home" {
-  source = "./modules/terrahouse_aws"
+module "dominoes_home_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   bucket_name = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.dominoes.public_path
+  content_version = var.dominoes.content_version
 }
 
 resource "terratowns_home" "home"{
   name = "Classic Dominoes Game"
   description = "Tips, Tricks, and Strategies to playing Dominoes"
-  domain_name = module.dominoes_home.domain_name
-  # domain_name = "test.cloudfront.net"
+  domain_name = module.dominoes_home_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.dominoes.content_version
 }
 
-module "crepes_home" {
-  source = "./modules/terrahouse_aws"
+module "crepes_home_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   bucket_name = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.crepes.public_path
+  content_version = var.crepes.content_version
 }
 
 resource "terratowns_home" "crepes"{
   name = "Crepes"
   description = "Let's make crepes"
-  domain_name = module.crepes_home.domain_name
-  # domain_name = "test.cloudfront.net"
+  domain_name = module.crepes_home_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.crepes.content_version
 }
