@@ -23,7 +23,6 @@ provider "terratowns" {
 module "dominoes_home_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  bucket_name = var.bucket_name
   public_path = var.dominoes.public_path
   content_version = var.dominoes.content_version
 }
@@ -39,7 +38,6 @@ resource "terratowns_home" "home"{
 module "crepes_home_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  bucket_name = var.bucket_name
   public_path = var.crepes.public_path
   content_version = var.crepes.content_version
 }

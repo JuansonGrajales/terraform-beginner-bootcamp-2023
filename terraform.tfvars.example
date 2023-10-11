@@ -1,5 +1,4 @@
 user_uuid="7d9791a5-71c7-4bd3-b3f1-36f61b0f4425"
-bucket_name="5szm8yul0myaf4eatdwcltcyh7dijhs0"
 dominoes = {
     content_version=1
     public_path="/workspace/terraform-beginner-bootcamp-2023/public/dominoes"

@@ -7,14 +7,14 @@ variable "user_uuid" {
   }
 }
 
-variable "bucket_name" {
-  description = "Name for the S3 bucket"
-  type        = string
-  validation {
-    condition     = can(regex("^[a-zA-Z0-9.-]+$", var.bucket_name))
-    error_message = "Bucket name must only contain letters, numbers, hyphens, and periods."
-  }
-}
+# variable "bucket_name" {
+#   description = "Name for the S3 bucket"
+#   type        = string
+#   validation {
+#     condition     = can(regex("^[a-zA-Z0-9.-]+$", var.bucket_name))
+#     error_message = "Bucket name must only contain letters, numbers, hyphens, and periods."
+#   }
+# }
 
 variable "public_path" {
   description = "File path for the public directory"
